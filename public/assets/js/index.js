@@ -1,8 +1,10 @@
 $(function() {
   $(".devour").on("click", function(event) {
+    event.preventDefault();
     var id = $(this).data("id");
+    console.log("id", id)
     var newDevour = $(this).data("newdevour");
-
+    console.log("newDevour", newDevour)
     var newDevourState = {
       devour: newDevour
     };
@@ -20,7 +22,7 @@ $(function() {
     );
   });
 
-  $(".create-form").on("submit", function(event) {
+  $("#addBurger").on("click", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
@@ -48,6 +50,7 @@ $(function() {
   });
 
   $(".delete-burger").on("click", function(event) {
+    event.preventDefault();
     var id = $(this).data("id");
 
     // Send the DELETE request.

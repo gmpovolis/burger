@@ -12,8 +12,8 @@ app.engine("handlebars", handle({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // require routes and use them
-// const routes = require("")
-// app.use(routes)
+const routes = require("./controllers/burgerController")
+app.use(routes)
 
 app.listen(PORT, function(){
     console.log(`Listening on: http://localhost:${PORT}`);

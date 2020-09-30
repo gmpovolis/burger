@@ -55,13 +55,13 @@ function objToSql(ob) {
         cb(result);
       });
     },
-    update: function(table, objColVals, condition, cb) {
+    update: function(table, objColVals, burgerId, cb) {
       var queryString = "UPDATE " + table;
   
       queryString += " SET ";
       queryString += objToSql(objColVals);
       queryString += " WHERE ";
-      queryString += condition;
+      queryString += burgerId;
   
       connection.query(queryString, function(err, result) {
         if (err) {
@@ -71,10 +71,10 @@ function objToSql(ob) {
         cb(result);
       });
     },
-    delete: function(table, condition, cb) {
+    delete: function(table, burgerId, cb) {
       var queryString = "DELETE FROM " + table;
       queryString += " WHERE ";
-      queryString += condition;
+      queryString += burgerId;
   
       connection.query(queryString, function(err, result) {
         if (err) {
